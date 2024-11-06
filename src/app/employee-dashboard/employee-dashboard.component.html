@@ -1,0 +1,135 @@
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <!-- Sidebar -->
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-5 d-none d-sm-inline">Employee Menu</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link align-middle d-flex align-items-center px-0" (click)="setActiveItem('profile')">
+              <i class="fs-4 bi-person-circle me-2"></i> <span class="ms-1">Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link d-flex align-items-center px-0" (click)="setActiveItem('attendance')">
+              <i class="fs-4 bi-calendar-check me-2"></i> <span class="ms-1">Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link d-flex align-items-center px-0" (click)="setActiveItem('tasks')">
+              <i class="fs-4 bi-briefcase me-2"></i> <span class="ms-1">Tasks</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link d-flex align-items-center px-0" (click)="setActiveItem('performance')">
+              <i class="fs-4 bi-bar-chart-line me-2"></i> <span class="ms-1">Performance</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link d-flex align-items-center px-0" (click)="setActiveItem('payroll')">
+              <i class="fs-4 bi-wallet2 me-2"></i> <span class="ms-1">Payroll</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown pb-4">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/employe.png" alt="User" width="30" height="30" class="rounded-circle">
+            <span class="d-none d-sm-inline mx-1">Employee</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item" href="#" (click)="setActiveItem('profile')">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" (click)="signOut()">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col py-0">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Employee Dashboard</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-light"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Main navigation items -->
+            <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link active" aria-current="page" href="#!" (click)="setActiveItem('home')">
+                  <div>
+                    <img src="assets/home (1).png" alt="Home" width="24" height="24" class="mb-1" />
+                    Home
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('myTasks')">
+                  <div>
+                    <img src="assets/done.png" alt="My Tasks" width="24" height="24" class="mb-1" />
+                    My Tasks
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('schedule')">
+                  <div>
+                    <img src="assets/schedule.png" alt="Schedule" width="24" height="24" class="mb-1" />
+                    Schedule
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <!-- Settings button with dropdown and custom icon -->
+                <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" (click)="toggleSettingsDropdown()">
+                  <div>
+                    <img src="assets/cogwheel.png" alt="Settings" width="24" height="24" class="mb-1" />
+                    Settings
+                  </div>
+                </a>
+                <!-- Settings dropdown menu -->
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" [ngClass]="{ show: isSettingsDropdownOpen }" aria-labelledby="settingsDropdown">
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('settingsProfile')">Profile Settings</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('settingsPassword')">Change Password</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('settingsPrivacy')">Privacy Settings</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <!-- Right-side navigation items -->
+            <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('notifications')">
+                  <i class="fas fa-bell fa-lg mb-1"></i>
+                  <span class="badge rounded-pill badge-notification bg-info">3</span>
+                  Notifications
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('messages')">
+                  <i class="fas fa-envelope fa-lg mb-1"></i>
+                  <span class="badge rounded-pill badge-notification bg-primary">2</span>
+                  Messages
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Page Content Placeholder -->
+      <div class="container">
+        <h1 class="mt-4">Welcome to the Employee Dashboard</h1>
+        <p>View your tasks, track your attendance, and manage your personal performance metrics here.</p>
+      </div>
+    </div>
+  </div>
+</div>

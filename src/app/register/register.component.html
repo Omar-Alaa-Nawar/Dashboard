@@ -1,0 +1,100 @@
+<section class="vh-100 gradient-custom d-flex align-items-center">
+  <div class="container py-4 px-3">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 0.95rem;">
+          <div class="card-body p-4 text-center">
+            <h2 class="fw-bold mb-2 text-uppercase">Sign Up</h2>
+            <p class="text-white-50 mb-4">Please fill in your details to create an account!</p>
+
+            <form (ngSubmit)="register()">
+
+              <!-- Step 1 -->
+              <div *ngIf="step === 1">
+                <div class="form-outline form-white mb-3">
+                  <input type="text" id="name" class="form-control form-control-lg" 
+                         [(ngModel)]="registerData.name" name="name" required 
+                         aria-label="Your Name" />
+                  <label class="form-label" for="name">Your Name</label>
+                </div>
+                <div class="form-outline form-white mb-3">
+                  <input type="email" id="email" class="form-control form-control-lg" 
+                         [(ngModel)]="registerData.email" name="email" required 
+                         aria-label="Your Email" />
+                  <label class="form-label" for="email">Your Email</label>
+                </div>
+                <div class="form-outline form-white mb-3">
+                  <input type="text" id="company" class="form-control form-control-lg" 
+                         [(ngModel)]="registerData.company" name="company" required 
+                         aria-label="Company Name" />
+                  <label class="form-label" for="company">Company Name</label>
+                </div>
+                <div class="form-outline flex-fill mb-4">
+                  <label for="role">User Role</label>
+                  <select class="form-control form-control-lg" id="role" 
+                          [(ngModel)]="registerData.role" name="role" required>
+                    <option value="" disabled selected>Select a role</option>
+                    <option value="admin">Admin</option>
+                    <option value="manager">Manager</option>
+                    <option value="employee">Employee</option>
+                  </select>
+                </div>
+                <button type="button" class="btn btn-primary btn-lg w-100 mb-3" (click)="nextStep()">Next</button>
+              </div>
+
+              <!-- Step 2 -->
+              <div *ngIf="step === 2">
+                <div class="form-group mb-4">
+                  <label class="text-white" for="employees">Number of Employees</label>
+                  <div>
+                    <label class="radio-inline me-3">
+                      <input type="radio" name="employees" [(ngModel)]="registerData.employees" value="1-10" required> 1-10
+                    </label>
+                    <label class="radio-inline me-3">
+                      <input type="radio" name="employees" [(ngModel)]="registerData.employees" value="11-50" required> 11-50
+                    </label>
+                    <label class="radio-inline me-3">
+                      <input type="radio" name="employees" [(ngModel)]="registerData.employees" value="51-200" required> 51-200
+                    </label>
+                    <label class="radio-inline me-3">
+                      <input type="radio" name="employees" [(ngModel)]="registerData.employees" value="200+" required> 200+
+                    </label>
+                  </div>
+                </div>
+                <div class="form-outline flex-fill mb-4">
+                  <input type="text" id="industry" class="form-control form-control-lg" 
+                         [(ngModel)]="registerData.industry" name="industry" required 
+                         aria-label="Industry" />
+                  <label class="form-label" for="industry">Industry</label>
+                </div>
+                <button type="button" class="btn btn-primary w-100 mb-3" (click)="previousStep()">Previous</button>
+                <button type="button" class="btn btn-primary w-100" (click)="nextStep()">Next</button>
+              </div>
+
+              <!-- Step 3 -->
+              <div *ngIf="step === 3">
+                <div class="form-outline form-white mb-3">
+                  <input type="password" id="password" class="form-control form-control-lg" 
+                         [(ngModel)]="registerData.password" name="password" required 
+                         aria-label="Password" />
+                  <label class="form-label" for="password">Password</label>
+                </div>
+                <div class="form-outline form-white mb-3">
+                  <input type="password" id="confirmPassword" class="form-control form-control-lg" 
+                         [(ngModel)]="registerData.confirmPassword" name="confirmPassword" required 
+                         aria-label="Confirm Password" />
+                  <label class="form-label" for="confirmPassword">Confirm Password</label>
+                </div>
+                <button type="button" class="btn btn-primary w-100 mb-3" (click)="previousStep()">Previous</button>
+                <button type="submit" class="btn btn-success btn-lg w-100">Register</button>
+              </div>
+
+            </form>
+
+            <button class="btn btn-link mt-3" (click)="goToLogin()">Back to Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

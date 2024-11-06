@@ -1,0 +1,130 @@
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <!-- Sidebar -->
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-5 d-none d-sm-inline">Admin Menu</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link align-middle px-0" (click)="setActiveItem('userManagement')">
+              <i class="fs-4 bi-people-fill"></i> <span class="ms-1 d-none d-sm-inline">User Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="setActiveItem('reports')">
+              <i class="fs-4 bi-file-earmark-bar-graph"></i> <span class="ms-1 d-none d-sm-inline">Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="setActiveItem('systemLogs')">
+              <i class="fs-4 bi-clipboard-data"></i> <span class="ms-1 d-none d-sm-inline">System Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="setActiveItem('supportRequests')">
+              <i class="fs-4 bi-envelope-fill"></i> <span class="ms-1 d-none d-sm-inline">Support Requests</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown pb-4">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="assets/admin3.png" alt="User" width="30" height="30" class="rounded-circle">
+            <span class="d-none d-sm-inline mx-1">Admin</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item" href="#" (click)="setActiveItem('profile')">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" (click)="signOut()">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col py-0">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Admin Dashboard</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-light"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link active" aria-current="page" href="#!" (click)="setActiveItem('dashboard')">
+                  <div>
+                    <img src="assets/dashboard.png" alt="Dashboard" width="24" height="24" class="mb-1" />
+                    Dashboard
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('userManagement')">
+                  <div>
+                    <img src="assets/team.png" alt="Users" width="24" height="24" class="mb-1" />
+                    Users
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('reports')">
+                  <div>
+                    <img src="assets/seo-report.png" alt="Reports" width="24" height="24" class="mb-1" />
+                    Reports
+                  </div>
+                </a>
+              </li>
+              <!-- Add Settings button with dropdown -->
+              <li class="nav-item dropdown text-center mx-2 mx-lg-1">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSettings" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="assets/cogwheel.png" alt="Settings" width="24" height="24" class="mb-1" /> <!-- Path to the cogwheel image -->
+                  Settings
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdownSettings">
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('adminSettings')">Admin Settings</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('generalSettings')">General Settings</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('userPermissions')">User Permissions</a></li>
+                  <!-- Add more settings options as needed -->
+                </ul>
+              </li>
+            </ul>
+
+            <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('notifications')">
+                  <div>
+                    <i class="fas fa-bell fa-lg mb-1"></i>
+                    <span class="badge rounded-pill badge-notification bg-info">3</span>
+                  </div>
+                  Notifications
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('messages')">
+                  <div>
+                    <i class="fas fa-envelope fa-lg mb-1"></i>
+                    <span class="badge rounded-pill badge-notification bg-primary">2</span>
+                  </div>
+                  Messages
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Page Content Placeholder -->
+      <div class="container">
+        <h1 class="mt-4">Welcome to the Admin Dashboard</h1>
+        <p>Manage users, settings, and view reports here.</p>
+      </div>
+    </div>
+  </div>
+</div>

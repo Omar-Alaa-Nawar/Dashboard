@@ -1,0 +1,31 @@
+<ng-container *ngIf="currentView === 'login'">
+  <app-login 
+    (registerClicked)="registerClicked()" 
+    (forgotPasswordClicked)="forgotPassword()"
+    (loginSuccess)="onLoginSuccess($event)">
+  </app-login>
+</ng-container>
+
+<ng-container *ngIf="currentView === 'register'">
+  <app-register (backToLogin)="backToLogin()"></app-register>
+</ng-container>
+
+<ng-container *ngIf="currentView === 'resetPassword'">
+  <app-reset-password (backToLogin)="backToLogin()" (backToHome)="handleBackToHome()"></app-reset-password>
+</ng-container>
+
+<!-- Main application content -->
+<ng-container *ngIf="currentView === 'main'">
+  <!-- Render the appropriate dashboard based on user role -->
+  <ng-container *ngIf="currentRole === 'employee'">
+    <app-employee-dashboard></app-employee-dashboard>
+  </ng-container>
+
+  <ng-container *ngIf="currentRole === 'manager'">
+    <app-manager-dashboard></app-manager-dashboard>
+  </ng-container>
+
+  <ng-container *ngIf="currentRole === 'admin'">
+    <app-admin-dashboard></app-admin-dashboard>
+  </ng-container>
+</ng-container>

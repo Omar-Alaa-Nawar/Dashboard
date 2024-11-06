@@ -1,0 +1,131 @@
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <!-- Sidebar -->
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <span class="fs-5 d-none d-sm-inline">Manager Menu</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <li class="nav-item">
+            <a href="#" class="nav-link align-middle px-0" (click)="setActiveItem('teamOverview')">
+              <span class="ms-1 d-none d-sm-inline">Team Overview</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="setActiveItem('attendanceManagement')">
+              <i class="fs-4 bi-calendar-check"></i> <span class="ms-1 d-none d-sm-inline">Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="setActiveItem('taskAssignment')">
+              <i class="fs-4 bi-briefcase"></i> <span class="ms-1 d-none d-sm-inline">Task Assignment</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="setActiveItem('performanceReview')">
+              <i class="fs-4 bi-bar-chart-line"></i> <span class="ms-1 d-none d-sm-inline">Performance</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link px-0 align-middle" (click)="setActiveItem('requests')">
+              <i class="fs-4 bi-envelope"></i> <span class="ms-1 d-none d-sm-inline">Requests</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+        <div class="dropdown pb-4">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img [src]="userInfo?.profilePic || 'assets/manager1.png'" alt="User" width="30" height="30" class="rounded-circle">
+            <span class="d-none d-sm-inline mx-1">{{ userInfo?.role || 'Manager' }}</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item" href="#" (click)="setActiveItem('profile')">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#" (click)="changePassword()">Change Password</a></li> <!-- Change Password is here -->
+            <li><a class="dropdown-item" href="#" (click)="signOut()">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col py-0">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-0">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Manager Dashboard</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-light"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link active" aria-current="page" href="#!" (click)="setActiveItem('home')">
+                  <div>
+                    <img src="assets/home (1).png" alt="Home" width="24" height="24" class="mb-1" />
+                    Home
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('teamOverview')">
+                  <div>
+                    <img src="assets/united.png" alt="Team" width="24" height="24" class="mb-1" />
+                    Team
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('reports')">
+                  <div>
+                    <img src="assets/seo-report.png" alt="Reports" width="24" height="24" class="mb-1" />
+                    Reports
+                  </div>
+                </a>
+              </li>
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <!-- Settings button with dropdown and custom icon -->
+                <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown" role="button" (click)="toggleSettingsDropdown()">
+                  <div>
+                    <img src="assets/cogwheel.png" alt="Settings" width="24" height="24" class="mb-1" />
+                    Settings
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" [ngClass]="{ show: isSettingsDropdownOpen }" aria-labelledby="settingsDropdown">
+                  <li><a class="dropdown-item" href="#" (click)="changePassword()">Change Password</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('settingsProfile')">Profile Settings</a></li>
+                  <li><a class="dropdown-item" href="#" (click)="setActiveItem('settingsPrivacy')">Privacy Settings</a></li>
+                </ul>
+              </li>
+            </ul>
+
+            <!-- Right-side navigation items -->
+            <ul class="navbar-nav ms-auto d-flex flex-row mt-3 mt-lg-0">
+              <li class="nav-item text-center mx-2 mx-lg-1">
+                <a class="nav-link" href="#!" (click)="setActiveItem('notifications')">
+                  <div>
+                    <i class="fas fa-bell fa-lg mb-1"></i>
+                    <span class="badge rounded-pill badge-notification bg-info">5</span>
+                  </div>
+                  Notifications
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main content section when reset password is not shown -->
+      <div class="container mt-4" *ngIf="!showResetPassword">
+        <h1>Welcome to the Manager Dashboard</h1>
+        <p>Oversee team tasks, manage attendance, assign projects, and review performance metrics for better team management and productivity.</p>
+      </div>
+
+      <!-- Reset Password Component -->
+      <app-reset-password *ngIf="showResetPassword" (backToHome)="backToManagerDashboard()"></app-reset-password>
+
+    </div>
+  </div>
+</div>

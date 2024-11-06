@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light background for contrast */
+    color: #343a40; /* Dark text color for readability */
+  }
+  
+  .container-fluid {
+    padding: 0; /* Remove default padding */
+  }
+  
+  .bg-dark {
+    background-color: #343a40 !important; /* Dark background for sidebar and navbar */
+    color: #ffffff; /* Ensure text in dark backgrounds remains visible */
+  }
+  
+  .navbar {
+    border-bottom: 2px solid #17a2b8; /* Bottom border for navbar */
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff; /* White text for navbar links */
+  }
+  
+  .navbar-dark .navbar-nav .nav-link.active {
+    color: #f8f9fa; /* Active link color */
+  }
+  
+  .nav-link {
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #17a2b8; /* Hover color for nav links */
+  }
+  
+  .dropdown-menu-dark {
+    background-color: #343a40; /* Dark background for dropdown */
+    border: none; /* Remove border for cleaner look */
+  }
+  
+  .main-content {
+    padding: 20px; /* Padding for main content */
+    background-color: #ffffff; /* White background for content readability */
+    border-radius: 8px; /* Rounded corners for content container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .col, .col-auto {
+    padding: 0; /* Remove padding around columns */
+  }
+  
+  .nav-item .badge {
+    font-size: 0.8rem; /* Smaller badge font size */
+    margin-left: 5px; /* Add some spacing */
+  }
+  
+  .sidebar .nav-link {
+    color: #adb5bd; /* Muted color for sidebar links */
+  }
+  
+  .sidebar .nav-link:hover {
+    color: #f8f9fa; /* Bright color on hover */
+  }
+  
+  .sidebar .nav-link.active {
+    background-color: #17a2b8; /* Highlight active link */
+    color: #ffffff; /* White text for active link */
+    border-radius: 4px; /* Rounded corners for active link */
+  }
+  
+  .sidebar {
+    width: 100%; /* Ensure full width for sidebar */
+    padding-top: 10px; /* Add spacing at the top */
+  }
+  
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #17a2b8; /* Hover effect for dropdown items */
+    color: #ffffff; /* White text on hover */
+  }
+  
+  .dropdown-divider {
+    border-top: 1px solid #adb5bd; /* Lighter divider color */
+  }

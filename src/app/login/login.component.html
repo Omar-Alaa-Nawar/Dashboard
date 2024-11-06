@@ -1,0 +1,50 @@
+<section class="vh-100 gradient-custom d-flex align-items-center">
+  <div class="container py-4 px-3">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 0.95rem;">
+          <div class="card-body p-4 text-center">
+            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+            <p class="text-white-50 mb-4">Please enter your login and password!</p>
+
+            <form (ngSubmit)="login()">
+              <div class="form-outline form-white mb-3">
+                <input type="email" id="typeEmailX" class="form-control form-control-lg" 
+                       [(ngModel)]="loginData.email" name="email" required 
+                       aria-label="Email" />
+                <label class="form-label" for="typeEmailX">Email</label>
+              </div>
+
+              <div class="form-outline form-white mb-3">
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" 
+                       [(ngModel)]="loginData.password" name="password" required 
+                       aria-label="Password" />
+                <label class="form-label" for="typePasswordX">Password</label>
+              </div>
+
+              <p class="small mb-4">
+                <button type="button" (click)="forgotPassword()" class="btn btn-link">Forgot Password?</button>
+              </p>
+
+              <button class="btn btn-outline-light btn-lg px-4" type="submit">Login</button>
+              <p *ngIf="message" class="text-danger mt-3">{{ message }}</p> <!-- Display message here -->
+            </form>
+
+            <div class="d-flex justify-content-center text-center mt-3">
+              <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+              <a href="#!" class="text-white mx-3"><i class="fab fa-twitter fa-lg"></i></a>
+              <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+            </div>
+
+            <div>
+              <p class="mb-0">Don't have an account? 
+                <a href="#!" (click)="onRegisterClick()" class="text-white-50 fw-bold">Register</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
